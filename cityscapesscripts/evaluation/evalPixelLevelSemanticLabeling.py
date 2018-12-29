@@ -553,7 +553,7 @@ def evaluatePair(predictionImgFileName, groundTruthImgFileName, confMatrix, inst
         predictionImg = predictionImg.resize((2048,1024),Image.ANTIALIAS)
         prediction  = np.array(predictionImg)
         #(2048,1024,3)
-        print(predictionNp.shape)
+        #print(prediction.shape)
         prediciton = np.zeros((2048,1024))
         for i in predictionImg.size[0]:
             for j in predictionImg.size[1]:
