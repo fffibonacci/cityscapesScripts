@@ -58,4 +58,3 @@ labelsCp = [
 name2labelCp      = { label.name    : label for label in labelsCp }
 # id to label object
 id2labelCp        = { label.id      : label for label in labelsCp }
-

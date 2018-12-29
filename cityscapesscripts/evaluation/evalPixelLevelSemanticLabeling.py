@@ -89,7 +89,7 @@ def getPrediction( args, groundTruthFile ):
         args.predictionWalk = walk
 
     csFile = getCsFileInfo(groundTruthFile)
-    filePattern = "{}_{}_{}*.png".format( csFile.city , csFile.sequenceNb , csFile.frameNb )
+    filePattern = "{}_{}_{}_fake_B*.png".format( csFile.city , csFile.sequenceNb , csFile.frameNb )
 
     predictionFile = None
     for root, filenames in args.predictionWalk:
@@ -550,7 +550,15 @@ def evaluatePair(predictionImgFileName, groundTruthImgFileName, confMatrix, inst
     # Loading all resources for evaluation.
     try:
         predictionImg = Image.open(predictionImgFileName)
+        predictionImg = predictionImg.resize((2048,1024),Image.ANTIALIAS)
         predictionNp  = np.array(predictionImg)
+        #(2048,1024,3)
+        #print(predictionNp.shape)
+        Grey = np.zeros((2048,1024))
+        for i in predictionImg.size[0]:
+            for j in predictionImg.size[1]:
+                 Grey[i][j] = color2label(predictionNp[i][j])
+        predictionNp = Grey
     except:
         printError("Unable to load " + predictionImgFileName)
     try:

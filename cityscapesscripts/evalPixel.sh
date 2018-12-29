@@ -1,0 +1,1 @@
+export CITYSCAPES_RESULTS=~/Github/evaluate_pix2pixA2B/
