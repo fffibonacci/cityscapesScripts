@@ -555,8 +555,8 @@ def evaluatePair(predictionImgFileName, groundTruthImgFileName, confMatrix, inst
         #(2048,1024,3)
         #print(prediction.shape)
         predicitonNp = np.zeros((2048,1024))
-        for i in predictionImg.size[0]:
-            for j in predictionImg.size[1]:
+        for i in range(predictionImg.size[0]):
+            for j in range(predictionImg.size[1]):
                  PredictionNp[i][j] = color2label(prediction[i][j])
     except:
         printError("Unable to load " + predictionImgFileName)
