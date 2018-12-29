@@ -39,7 +39,7 @@ except:
 # Cityscapes modules
 try:
     from cityscapesscripts.helpers.annotation import Annotation
-    from cityscapesscripts.helpers.labels import labels, name2label, id2label, trainId2label, category2labels
+    from cityscapesscripts.helpers.labels import labels, name2label, id2label, trainId2label, category2labels, color2label
 except ImportError as err:
     print("Failed to import all Cityscapes modules: %s" % err)
     sys.exit(-1)
